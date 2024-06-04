@@ -1,0 +1,15 @@
+php_value upload_max_filesize 120M
+php_value post_max_size 130M
+php_value memory_limit 150M
+
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /jago-welfare/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /jago-welfare/index.php [L]
+</IfModule>
